@@ -1,2 +1,2 @@
 # docs
-Documentation for all Constellation &amp; Inspire
+Documentation for Constellation &amp; Inspire

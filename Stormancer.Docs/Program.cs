@@ -23,7 +23,7 @@ builder.Services.AddContentEngineService(_ => new ContentEngineOptions
 })    // Console documentation service
     .WithMarkdownContentService(_ => new MarkdownContentOptions<ConstellationFrontMatter>
     {
-        ContentPath = "Content/Constellation",
+        ContentPath = "Content/constellation",
         BasePageUrl = "/constellation",
         TableOfContentsSectionKey = "Constellation",
 
@@ -31,14 +31,14 @@ builder.Services.AddContentEngineService(_ => new ContentEngineOptions
     // CLI documentation service
     .WithMarkdownContentService(_ => new MarkdownContentOptions<InspireFrontMatter>
     {
-        ContentPath = "Content/Inspire",
+        ContentPath = "Content/inspire",
         BasePageUrl = "/inspire",
         TableOfContentsSectionKey = "inspire",
     })
     // Blog service
     .WithMarkdownContentService(_ => new MarkdownContentOptions<BlogFrontMatter>
     {
-        ContentPath = "Content/Blog",
+        ContentPath = "Content/blog",
         BasePageUrl = "/blog",
         ExcludeSubfolders = false,
         PostFilePattern = "*.md;*.mdx"

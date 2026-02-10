@@ -1,24 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>7485d365-de62-4d7f-875d-78f72afe35be</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
-    <PackageReference Include="MyLittleContentEngine" Version="0.0.0-alpha.0.277" />
-    <PackageReference Include="MyLittleContentEngine.MonorailCss" Version="0.0.0-alpha.0.277" />
-    <PackageReference Include="MyLittleContentEngine.UI" Version="0.0.0-alpha.0.277" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Content\Blog\" />
-    <Folder Include="Content\Inspire\" />
-    <Folder Include="Content\Constellation\" />
-  </ItemGroup>
-
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>7485d365-de62-4d7f-875d-78f72afe35be</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<ContainerRepository>stormancer/stormancer.websites.docs</ContainerRepository>
+	</PropertyGroup>
+	<ItemGroup>
+		<Watch Include="Content\**\*.*" />
+		<Watch Include="..\Spectre.Docs.Examples\**.cs" />
+		<Watch Include="..\Spectre.Docs.Cli.Examples\**.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+		<PackageReference Include="MyLittleContentEngine" Version="0.0.0-alpha.0.277" />
+		<PackageReference Include="MyLittleContentEngine.MonorailCss" Version="0.0.0-alpha.0.277" />
+		<PackageReference Include="MyLittleContentEngine.UI" Version="0.0.0-alpha.0.277" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Content\**" CopyToPublishDirectory="PreserveNewest" />
+	</ItemGroup>
 </Project>

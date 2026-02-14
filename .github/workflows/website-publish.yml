@@ -1,4 +1,4 @@
-name: Docker
+name: Publish preview
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -77,3 +77,10 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      - name: Update website
+        id: update-website
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://management.web.stormancer.com/containers/docs-preview/update'
+          method: 'POST'
+          customHeaders: '{ "secret": "${{ secrets.STORMANCER_MANAGEMENT_SECRET}}"}'

@@ -79,8 +79,6 @@ jobs:
           cache-to: type=gha,mode=max
       - name: Update website
         id: update-website
-        uses: fjogeleit/http-request-action@v1
+        uses: sozo-design/curl@v1.0.2
         with:
-          url: 'https://management.web.stormancer.com/containers/docs-preview/update'
-          method: 'POST'
-          customHeaders: '{ "secret": "${{ secrets.STORMANCER_MANAGEMENT_SECRET}}"}'
+          args: -X POST -H "secret:${{ secrets.STORMANCER_MANAGEMENT_SECRET}}"  https://management.web.stormancer.com/containers/docs-preview/update

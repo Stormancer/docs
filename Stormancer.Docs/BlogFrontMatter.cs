@@ -8,7 +8,7 @@ namespace Stormancer.Docs;
 public class BlogFrontMatter : IFrontMatter
 {
     public string Title { get; init; } = "Empty title";
-    public string Author { get; init; } = "Spectre.Console Team";
+    public string Author { get; init; } = "Stormancer Team";
     public string Description { get; init; } = string.Empty;
     public DateTime Date { get; init; } = DateTime.Now;
     public bool IsDraft { get; init; } = false;

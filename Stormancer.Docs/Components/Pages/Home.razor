@@ -4,173 +4,197 @@
 @inject IMarkdownContentService<ConstellationFrontMatter> ConstellationContentServices
 @inject IMarkdownContentService<InspireFrontMatter> InspireContentServices
 
-<PageTitle>@ContentEngineOptions.SiteTitle</PageTitle>
+<PageTitle>Projet INSPIRE — L'Architecture Ouverte pour le Multivers Souverain</PageTitle>
 
 <HeadContent>
     <meta name="description" content="Documentation for Constellation & Inspire, a suite of tools to build relatime distributed systems, for the videogame industry but not only." />
+    <link rel="stylesheet" href="css/inspire.css">
 </HeadContent>
 
-<div class="space-y-12">
-    <!-- Hero Section -->
-    <div class="not-prose">
-    <section class="not-prose text-center py-[clamp(1rem,-2rem+9.6cqi,4rem)]">
-        <h1 class="text-[clamp(2rem,6.4cqi,4rem)] font-extrabold mb-6">
-            <span
-                class="bg-gradient-to-r from-primary-600 to-tertiary-one-600 dark:from-primary-400 dark:to-tertiary-one-400 bg-clip-text text-transparent">
-                Constellation & Inspire
+<!-- ========== HERO ========== -->
+<section id="hero" class="relative overflow-hidden px-16 pt-40 pb-24 dark:bg-inspire">
+    <div class="hero-glow-cyan absolute top-16 -right-20 w-[500px] h-[500px] rounded-full pointer-events-none"></div>
+    <div class="hero-glow-purple absolute -bottom-16 -left-20 w-[600px] h-[400px] pointer-events-none"></div>
+    <div class="max-w-[1200px] mx-auto flex items-center gap-16 relative z-10 flex-wrap lg:flex-nowrap">
+        <!-- Contenu -->
+        <div class="flex-1 flex flex-col gap-8 min-w-[300px]">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide font-mono-custom text-inspire-purple" style="background:rgba(124,58,237,0.12);">
+                ● PROJET OPEN SOURCE · FRANCE 2030
             </span>
-        </h1>
-        <p class="text-[clamp(1.0rem,3.2cqi,2rem)] text-base-600 dark:text-base-400 max-w-3xl mx-auto">
-            Create powerful, crossplatform, realtime distributed applications
-        </p>
-
-    </section>
-    </div>
-    <!-- Console Output Showcase -->
-    <section class="w-full">
-            <div class="max-w-5xl mx-auto">
-                <Screenshot src="/assets/hero.svg" />
-
-            </div>
-    </section>
-
-    <!-- Feature Cards -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Console Card -->
-        <article
-            class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-transparent to-tertiary-two-100/50 dark:to-tertiary-two-900/25 border border-tertiary-two-200/50 dark:border-tertiary-two-900/33 transition-all shadow-xs">
-            <div class="p-6 md:p-8">
-                <div class="flex items-center mb-4">
-                    <div class="p-2 md:p-3 bg-tertiary-two-600 dark:bg-tertiary-two-500 rounded-lg text-white">
-                        <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <h2 class="text-xl md:text-2xl font-bold ml-3 md:ml-4"><a href="/console">Console Documentation</a></h2>
-                </div>
-
-                <p class="text-sm md:text-base text-base-600 dark:text-tertiary-two-100 mb-6">
-                    Learn how to create networked realtime applications with Constellation .
-                </p>
-
-                <div class="mb-6">
-                    <h3 class="font-semibold text-sm uppercase tracking-wide text-base-700 dark:text-base-100 mb-3">
-                        Get Started
-                    </h3>
-                    <ul class="space-y-2">
-                        @foreach (var p in _constellationPages.Where(p => p.Url.Contains("/tutorials/")).OrderBy(i => i.FrontMatter.Order))
-                        {
-                            <li>
-                                <a href="@p.Url"
-                                   class="flex items-center text-tertiary-two-900 dark:text-tertiary-two-200 hover:text-tertiary-two-800 dark:hover:text-tertiary-two-100 group/link">
-                                    <svg class="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                    <span
-                                        class="text-sm md:text-base group-hover:translate-x-1 transition-transform">@p.FrontMatter.Title</span>
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                </div>
-
-                <a href="/constellation"
-                   class="inline-flex items-center text-sm md:text-base text-tertiary-two-700 dark:text-tertiary-two-200 font-medium hover:text-tertiary-two-800 dark:hover:text-tertiary-two-300 group/link">
-                    View all Constellation docs
-                    <svg class="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none"
-                         stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        </article>
-
-        <!-- CLI Card -->
-        <article
-            class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-transparent to-tertiary-one-100/50 dark:to-tertiary-one-900/33 border border-tertiary-one-200/50 dark:border-tertiary-one-900/50 transition-all shadow-xs">
-            <div class="p-6 md:p-8">
-                <div class="flex items-center mb-4">
-                    <div class="p-2 md:p-3 bg-tertiary-one-600 dark:bg-tertiary-one-500 rounded-lg text-white">
-                        <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                        </svg>
-                    </div>
-                    <h2 class="text-xl md:text-2xl font-bold ml-3 md:ml-4"><a href="/cli">CLI Documentation</a></h2>
-                </div>
-
-                <p class="text-sm md:text-base text-base-600 dark:text-tertiary-one-100 mb-6">
-                    Build immersive multiplayer experiences 
-                </p>
-
-
-                <div class="mb-6">
-                    <h3 class="font-semibold text-sm uppercase tracking-wide text-base-700 dark:text-base-100 mb-3">
-                        Get Started
-                    </h3>
-                    <ul class="space-y-2">
-                        @foreach (var p in _inspirePages.Where(p => p.Url.Contains("/tutorials/")).OrderBy(i => i.FrontMatter.Order))
-                        {
-                            <li>
-                                <a href="@p.Url"
-                                   class="flex items-center  text-tertiary-one-700 dark:text-tertiary-one-400 hover:text-tertiary-one-800 dark:hover:text-tertiary-one-300 group/link">
-                                    <svg class="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M9 5l7 7-7 7"></path>
-                                    </svg>
-                                    <span
-                                        class="group-hover:translate-x-1 text-sm md:text-base transition-transform transition-300">@p.FrontMatter.Title</span>
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                </div>
-
-                <a href="/inspire"
-                   class="text-sm md:text-base inline-flex items-center text-tertiary-one-700 dark:text-tertiary-one-400 font-medium hover:text-tertiary-one-800 dark:hover:text-tertiary-one-300 group/link">
-                    View all Inspire docs
-                    <svg class="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none"
-                         stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-            </div>
-        </article>
-    </div>
-
-    <!-- Quick Start Section -->
-    <section class="mt-12 p-8 bg-base-100 dark:bg-base-800 rounded-2xl">
-        <h2 class="text-3xl font-bold mb-6 text-center">Quick Start</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div class="bg-white dark:bg-base-900 p-6 rounded-lg">
-                <h3 class="font-semibold mb-3 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor"
-                         viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                    test...
-                </h3>
-                <pre class="bg-base-100 dark:bg-base-800 p-3 rounded text-sm overflow-x-auto"><code>test</code></pre>
-            </div>
-            <div class="bg-white dark:bg-base-900 p-6 rounded-lg">
-                <h3 class="font-semibold mb-3 flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-tertiary-one-600 dark:text-tertiary-one-400" fill="none"
-                         stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                    test 2...
-                </h3>
-                <pre class="bg-base-100 dark:bg-base-800 p-3 rounded text-sm overflow-x-auto"><code>test 2</code></pre>
+            <h1 class="font-heading text-5xl font-black leading-[1.1] dark:text-white">
+                Projet INSPIRE :<br>L'Architecture Ouverte<br>pour le Multivers<br>Souverain
+            </h1>
+            <p class="dark:text-inspire-grey text-lg leading-relaxed">
+                Simplifier la création, démocratiser l'immersion, garantir la souveraineté.
+            </p>
+            <div class="flex gap-4 flex-wrap">
+                <a href="#piliers" class="btn-inspire-primary inline-flex items-center px-7 py-3 rounded-xl text-base font-bold text-white no-underline hover:opacity-90 transition-opacity">Découvrir la technologie</a>
             </div>
         </div>
-    </section>
-</div>
+        <!-- Visual -->
+        <div class="flex-none w-full lg:w-[544px] h-[420px] rounded-2xl overflow-hidden relative hero-glow-purple"
+             style="background: linear-gradient(135deg, rgba(124,58,237,0.25) 0%, rgba(6,182,212,0.18) 50%, rgba(7,11,24,0.9) 100%);">
+            <img src="/assets/inspire-vr-01-600.jpg" alt="Femme avec un casque de réalité virtuelle" class=" absolute inset-0 w-full h-full object-cover">
+        </div>
+    </div>
+</section>
+
+<!-- ========== INTRO ========== -->
+<section class="px-16 py-16 text-center bg-purple-800 dark:bg-[var(--inspire_dark)]">
+    <p class="font-heading text-4xl font-extrabold leading-tight text-white max-w-[1000px] mx-auto">
+        Pipeline complet et open-source pour la production d'expériences interactives, immersives et persistantes.
+    </p>
+</section>
+
+<!-- ========== VISION ========== -->
+<section id="vision" class="px-16 py-24 dark:bg-inspire">
+    <div class="max-w-[1200px] mx-auto flex items-center gap-20 flex-wrap lg:flex-nowrap">
+        <div class="flex-1 flex flex-col gap-6 min-w-[280px]">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide font-mono-custom w-fit text-purple-700  dark:text-purple-400"
+                  style="background:rgba(124,58,237,0.12); ">💡 LA VISION</span>
+            <h2 class="font-heading text-4xl font-extrabold leading-tight dark:text-white">Des univers virtuels ouverts et accessibles</h2>
+            <p class="dark:text-inspire-grey text-lg leading-relaxed">
+                Créer des expériences immersives coûte cher et repose souvent sur des solutions
+                propriétaires fermées. INSPIRE lève ces barrières en proposant une solution complète,
+                souveraine et accessible aux non-techniciens pour créer leurs propres univers virtuels.
+            </p>
+        </div>
+        <div class="flex-none w-full lg:w-[500px] h-80 rounded-3xl relative overflow-hidden"
+             style="background: linear-gradient(135deg, rgba(124,58,237,0.3) 0%, rgba(6,182,212,0.2) 60%, rgba(7,11,24,0.95) 100%);">
+            <img src="/assets/inspire-vr-02.jpg" alt="Ville virtuelle" class=" absolute inset-0 w-full h-full object-cover">
+        </div>
+    </div>
+</section>
+
+<!-- ========== PILIERS ========== -->
+<section id="piliers" class="px-16 py-24 dark:bg-[rgba(14,22,40,0.50)]">
+    <div class="max-w-[1200px] mx-auto">
+        <div class="text-center flex flex-col items-center gap-4 mb-12">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide font-mono-custom text-purple-700  dark:text-purple-400"
+                  style="background:rgba(124,58,237,0.12); ">
+                ⚙️ NOS PILIERS
+            </span>
+            <h2 class="font-heading text-4xl font-extrabold dark:text-white">Trois piliers technologiques</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @foreach (var card in _piliers)
+            {
+                <div class="rounded-2xl p-8 flex flex-col gap-5 border border-white/[0.06]" style="background:#0e1628;">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 style="background:rgba(6,182,212,0.12);">
+                        <img src="@card.Icon" class="w-6 h-6" />
+                    </div>
+                    <p class="font-heading text-xl font-extrabold text-white">@card.Title</p>
+                    <p class="text-sm leading-relaxed text-white dark:text-inspire-grey">@card.Desc</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ========== USAGES ========== -->
+<section id="usages" class="px-16 py-24 bg-slate-100 dark:bg-purple-950">
+    <div class="max-w-[1200px] mx-auto">
+        <div class="text-center flex flex-col items-center gap-6 mb-12">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide font-mono-custom text-purple-700  dark:text-purple-400"
+                  style="background:rgba(124,58,237,0.12); ">🏛️ DES USAGES CONCRETS</span>
+            <h2 class="font-heading text-4xl font-extrabold dark:text-white">Réponses concrètes aux besoins du terrain</h2>
+            <p class="dark:text-inspire-grey text-lg leading-relaxed max-w-2xl">
+                INSPIRE répond aux besoins pragmatiques du terrain, identifiés via des entretiens avec des acteurs majeurs de la culture et de l'éducation.
+            </p>
+        </div>
+        <div class="flex flex-col gap-10 max-w-3xl mx-auto">
+            @foreach (var usage in _usages)
+            {
+                <div class="flex items-start gap-6">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-[#06b6d4]" style="background:rgba(6,182,212,0.12);">
+                        <img src="@usage.Icon" class="w-6 h-6" />
+                    </div>
+                    <div>
+                        <p class="font-heading text-xl font-extrabold text-slate-900 dark:text-white">@usage.Title</p>
+                        <p class="dark:text-inspire-grey text-base leading-relaxed">@usage.Desc</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONSORTIUM ========== -->
+<section id="consortium" class="px-16 py-24 dark:bg-inspire">
+    <div class="max-w-[1200px] mx-auto">
+        <div class="text-center flex flex-col items-center gap-4 mb-12">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide font-mono-custom text-purple-700  dark:text-purple-400"
+                  style="background:rgba(124,58,237,0.12); ">🤝 UN CONSORTIUM D'EXPERTS</span>
+            <h2 class="font-heading text-4xl font-extrabold dark:text-white">Quatre partenaires complémentaires</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            @foreach (var p in _partners)
+            {
+                <div class="rounded-2xl p-6 flex flex-col gap-4 border border-white/[0.06]" style="background:#0e1628;">
+                    <p class="font-mono-custom text-sm font-medium tracking-widest" style="color:#7c3aed;">@p.Role</p>
+                    <p class="font-heading text-xl font-extrabold text-white">@p.Name</p>
+                    <p class="text-sm leading-relaxed text-inspire-grey">@p.Desc</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ========== POURQUOI ========== -->
+<section id="pourquoi" class="px-16 py-24 dark:bg-inspire">
+    <div class="max-w-3xl mx-auto flex flex-col items-center gap-12">
+        <div class="flex flex-col items-center gap-4 text-center">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium tracking-wide font-mono-custom text-purple-700  dark:text-purple-400"
+                  style="background:rgba(124,58,237,0.12); ">🚀 POURQUOI INSPIRE ?</span>
+            <h2 class="font-heading text-4xl font-extrabold dark:text-white">Un socle ouvert pour un futur pérenne</h2>
+        </div>
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="flex flex-col gap-4">
+                <p class="font-heading text-xl font-extrabold" style="color:#06b6d4;">Engagement Open Source</p>
+                <p class="dark:text-inspire-grey text-lg leading-relaxed">INSPIRE garantit aux institutions un contrôle total sur leurs données et la pérennité de leurs investissements numériques.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <p class="font-heading text-xl font-extrabold" style="color:#06b6d4;">L'Accessibilité pour tous</p>
+                <p class="dark:text-inspire-grey text-lg leading-relaxed">INSPIRE intègre des recherches approfondies sur l'accessibilité numérique pour permettre aux personnes en situation de handicap d'accéder aux univers virtuels.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    // Données structurées pour éviter la répétition dans le template
+    private record PilierCard(string Icon, string Title, string Desc);
+    private record UsageRow(string Icon, string Title, string Desc);
+    private record PartnerCard(string Role, string Name, string Desc);
+
+    private readonly List<PilierCard> _piliers =
+    [
+        new("/assets/chart-network.svg",         "Réseau Haute Performance",
+            "Une architecture capable de connecter un grand nombre d'utilisateurs simultanés tout en garantissant une vision partagée et fluide de l'univers virtuel."),
+        new("/assets/wand-sparkles.svg",   "Outils Créateurs No-Code",
+            "Une surcouche pour le moteur open-source Godot, permettant aux équipes métiers (conservateurs, enseignants, designers) de concevoir des interactions complexes sans coder."),
+        new("/assets/laptop-minimal.svg",  "Accessibilité Cross-Platform",
+            "Une expérience fluide et cohérente, que vous soyez sur web, mobile, PC ou casque de réalité virtuelle/augmentée."),
+    ];
+
+    private readonly List<UsageRow> _usages =
+    [
+        new("/assets/building-2.svg",      "Musées & Institutions Culturelles",
+            "Valoriser le patrimoine, recontextualiser des œuvres fragiles et proposer des médiations collectives sans l'isolement du casque VR."),
+        new("/assets/graduation-cap.svg",  "Éducation & Formation",
+            "Créer des journées portes ouvertes virtuelles immersives, des espaces de formation collaborative et des outils pédagogiques gamifiés."),
+        new("/assets/factory.svg",         "Industrie & Création",
+            "Développer des jumeaux numériques ou des expériences sociales innovantes sur un socle technologique pérenne."),
+    ];
+
+    private readonly List<PartnerCard> _partners =
+    [
+        new("CHEF DE FILE", "Stormancer",    "Spécialiste des architectures serveur modulaire et des réseaux distribués haute performance."),
+        new("DESIGN UX",   "Copotato",      "Agence spécialisée en UX design, médiation culturelle et interfaces de création accessibles à tous."),
+        new("RECHERCHE",   "Cnam", "Le laboratoire Cédric est expert en interactions humain-machine, accessibilité et immersion (VR/AR/MR)."),
+        new("STUDIO WEB/INDIE", "Seed by Seed", "Studio de jeu vidéo apportant son savoir-faire en design d'expériences sociales et multijoueurs coopératives."),
+    ];
+}
 
 @code {
     private ImmutableList<MarkdownContentPage<ConstellationFrontMatter>> _constellationPages = [];

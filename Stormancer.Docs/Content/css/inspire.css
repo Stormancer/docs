@@ -1,0 +1,57 @@
+/* ============================
+   INSPIRE — Custom CSS
+   ============================ */
+
+:root {
+  --inspire_bg_dark:    #070b18;
+  --bg-mid:     rgba(14, 22, 40, 0.50);
+  --bg-card:    #0e1628;
+  --inspire_purple:     #B58BFF;
+  --inspire_dark:     #28144a;  
+  --purple-dim: rgba(124, 58, 237, 0.12);
+  --cyan:       #06b6d4;
+  --mint:       #06cbad;
+  --inspire_grey:       #9B9BAA;
+  --font-heading: 'Exo 2', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+/* Fonts utilitaires non présentes dans Tailwind de base */
+.font-heading { font-family: var(--font-heading); }
+.font-mono-custom { font-family: var(--font-mono); }
+
+/* Couleur de fond */
+.bg-inspire { background-color: var(--inspire_bg_dark); }
+.bg-inspire-purple { background-color: var(--inspire_purple); }
+.bg-inspire-dark { background-color: var(--inspire_dark); }
+
+/* Couleur de texte */
+.text-inspire-grey { color: var(--inspire_grey); }
+.text-inspire-purple { color: var(--inspire_purple); }
+
+/* Glows / gradients complexes */
+.hero-glow-cyan {
+  background: radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%);
+}
+.hero-glow-purple {
+  background: radial-gradient(ellipse, rgba(124,58,237,0.08) 0%, transparent 70%);
+}
+.vision-image-glow {
+  background: radial-gradient(circle, rgba(124,58,237,0.4) 0%, transparent 70%);
+  filter: blur(30px);
+}
+.hero-visual-orb {
+  background: radial-gradient(circle, rgba(124,58,237,0.5) 0%, rgba(6,182,212,0.3) 50%, transparent 70%);
+  filter: blur(20px);
+}
+
+/* Gradient bouton primaire */
+.btn-inspire-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+}
+
+/* Nav blur */
+.nav-blur {
+  backdrop-filter: blur(16px);
+  background: rgba(7, 11, 24, 0.85);
+}
